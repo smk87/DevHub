@@ -40,7 +40,7 @@ router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateProfileInput();
+    const { errors, isValid } = validateProfielInput();
 
     //Get fields
     const profileFields = {};
