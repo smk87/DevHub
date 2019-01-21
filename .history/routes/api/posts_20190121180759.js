@@ -196,7 +196,7 @@ router.post(
 // @desc     Remove comment from post
 // @access   Private
 router.delete(
-  "/comment/:id/:comment_id",
+  "/comment/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Post.findById(req.params.id)

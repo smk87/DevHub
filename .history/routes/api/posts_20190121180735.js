@@ -196,7 +196,7 @@ router.post(
 // @desc     Remove comment from post
 // @access   Private
 router.delete(
-  "/comment/:id/:comment_id",
+  "/comment/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Post.findById(req.params.id)
@@ -219,9 +219,6 @@ router.delete(
 
         //Splice comment out of array
         post.comments.splice(removeIndex, 1);
-
-        //Save
-        post.save().then(post => res.json(post));
       })
       .catch(err => res.status(404).json({ postnotfound: "No post found" }));
   }
