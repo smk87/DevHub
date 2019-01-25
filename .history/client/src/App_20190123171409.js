@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./store";
 
 //Import all the layout components
 import Navbar from "./components/layout/Navbar";

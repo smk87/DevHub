@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
+import axios from "axios";
 import classnames from "classnames";
-import { connect } from "react-redux";
-import { registerUser } from "../../actions/authActions";
 
-class Register extends Component {
+export default class Register extends Component {
   constructor() {
     super();
     this.state = {
@@ -30,31 +27,22 @@ class Register extends Component {
       password: this.state.password,
       password2: this.state.password2
     };
-
-    this.props.registerUser(newUser, this.props.history);
+    axios
+      .post("/api/users/register", newUser)
+      .then(res => console.log(res.data))
+      .catch(err => this.setState({ errors: err.response.data.errors }));
   };
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
-      console.log(nextProps.errors);
-      this.setState({ errors: nextProps.errors });
-    }
-  }
 
   render() {
     //const { errors } = this.state;
-
-    const { user } = this.props.auth;
-
     return (
       <div className="register">
-        {user ? user.name : null}
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">Create your DevHub account</p>
-              <form noValidate onSubmit={this.onSubmit}>
+              <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
                     type="text"
@@ -83,7 +71,7 @@ class Register extends Component {
                     value={this.state.email}
                     onChange={this.onChange}
                   />
-                  {this.state.errors.email && (
+                  {this.state.errors.name && (
                     <div className="invalid-feedback">
                       {this.state.errors.email}
                     </div>
@@ -104,7 +92,7 @@ class Register extends Component {
                     value={this.state.password}
                     onChange={this.onChange}
                   />
-                  {this.state.errors.password && (
+                  {this.state.errors.name && (
                     <div className="invalid-feedback">
                       {this.state.errors.password}
                     </div>
@@ -121,7 +109,7 @@ class Register extends Component {
                     value={this.state.password2}
                     onChange={this.onChange}
                   />
-                  {this.state.errors.password2 && (
+                  {this.state.errors.name && (
                     <div className="invalid-feedback">
                       {this.state.errors.password2}
                     </div>
@@ -136,19 +124,3 @@ class Register extends Component {
     );
   }
 }
-
-Register.propTypes = {
-  registerUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-  auth: state.auth,
-  errors: state.errors
-});
-
-export default connect(
-  mapStateToProps,
-  { registerUser }
-)(withRouter(Register));

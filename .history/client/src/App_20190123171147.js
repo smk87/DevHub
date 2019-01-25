@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./store";
+import { createStore, applyMiddleware } from "redux";
 
 //Import all the layout components
 import Navbar from "./components/layout/Navbar";
@@ -12,6 +12,8 @@ import Login from "./components/auth/Login";
 
 //Import CSS
 import "./App.css";
+
+const store = createStore(() => [], {}, applyMiddleware());
 
 class App extends Component {
   render() {

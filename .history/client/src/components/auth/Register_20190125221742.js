@@ -83,7 +83,7 @@ class Register extends Component {
                     value={this.state.email}
                     onChange={this.onChange}
                   />
-                  {this.state.errors.email && (
+                  {this.state.errors.name && (
                     <div className="invalid-feedback">
                       {this.state.errors.email}
                     </div>
@@ -104,7 +104,7 @@ class Register extends Component {
                     value={this.state.password}
                     onChange={this.onChange}
                   />
-                  {this.state.errors.password && (
+                  {this.state.errors.name && (
                     <div className="invalid-feedback">
                       {this.state.errors.password}
                     </div>

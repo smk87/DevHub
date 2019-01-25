@@ -26,6 +26,7 @@ router.post("/register", (req, res) => {
 
   //Check validation
   if (!isValid) {
+    console.log("sss");
     return res.status(400).json({ errors });
   }
 
