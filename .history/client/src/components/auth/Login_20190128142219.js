@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
+import classnames from "classnames";
 import TextFieldGroup from "../common/TextFieldGroup";
 
 class Login extends Component {
@@ -64,6 +65,7 @@ class Login extends Component {
                   onChange={this.onChange}
                   error={this.state.errors.email}
                 />
+
                 <TextFieldGroup
                   placeholder="Password"
                   name="password"
@@ -72,6 +74,7 @@ class Login extends Component {
                   onChange={this.onChange}
                   error={this.state.errors.password}
                 />
+
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>
