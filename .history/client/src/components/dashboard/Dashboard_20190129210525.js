@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 class Dashboard extends Component {
   componentDidMount() {
-    //Tries to load user profile if exist
     this.props.getCurrentProfile();
   }
 
