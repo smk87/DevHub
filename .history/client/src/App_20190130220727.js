@@ -16,10 +16,11 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
-import EditProfile from "./components/edit-profile/EditProfile";
+import EditProfile from "./components/create-profile/EditProfile";
 
 //Import CSS
 import "./App.css";
+import EditProfile from "./components/edit-profile/EditProfile";
 
 //Check for token
 if (localStorage.jwtToken) {

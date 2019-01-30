@@ -20,6 +20,7 @@ import EditProfile from "./components/edit-profile/EditProfile";
 
 //Import CSS
 import "./App.css";
+import EditProfile from "./components/edit-profile/EditProfile";
 
 //Check for token
 if (localStorage.jwtToken) {
