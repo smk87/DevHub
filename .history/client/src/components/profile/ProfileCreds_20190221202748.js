@@ -55,8 +55,12 @@ class ProfileCreds extends Component {
           {edu.title}
         </p>
         <p>
-          <strong>Field of Study: </strong>
-          {edu.fieldofstudy}
+          {edu.location === "" ? null : (
+            <span>
+              <strong>Location: </strong>
+              {edu.location}
+            </span>
+          )}
         </p>
         <p>
           {edu.description === "" ? null : (
@@ -70,24 +74,8 @@ class ProfileCreds extends Component {
     ));
 
     return (
-      <div className="row">
-        <div className="col-md-6">
-          <h3 className="text-center text-info">Experience</h3>
-          {expItems.length > 0 ? (
-            <ul className="list-group">{expItems}</ul>
-          ) : (
-            <p className="text-center">No Experience Listed</p>
-          )}
-        </div>
-
-        <div className="col-md-6">
-          <h3 className="text-center text-info">Education</h3>
-          {eduItems.length > 0 ? (
-            <ul className="list-group">{eduItems}</ul>
-          ) : (
-            <p className="text-center">No Education Listed</p>
-          )}
-        </div>
+      <div>
+        <h1>TODO: PROFILE CREDS</h1>
       </div>
     );
   }

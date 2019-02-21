@@ -10,12 +10,10 @@ class ProfileAbout extends Component {
     const firstName = profile.user.name.trim().split(" ")[0];
 
     //Skill list
-    const skills = profile.skills.map((skill, index) => (
+    const skills=profile.skills.map((skill,index)=>(
       <div key={index} className="p-3">
-        <i className="fa fa-check" />
-        {skill}
-      </div>
-    ));
+      <i className="fa fa-check"/>{skill}
+    ))
 
     return (
       <div className="row">
@@ -23,17 +21,27 @@ class ProfileAbout extends Component {
           <div className="card card-body bg-light mb-3">
             <h3 className="text-center text-info">{firstName}'s Bio</h3>
             <p className="lead">
-              {isEmpty(profile.bio) ? (
-                <span>{firstName} does not have a bio</span>
-              ) : (
-                <span>{profile.bio}</span>
-              )}
+              {isEmpty(profile.bio) ? null : <span>{profile.bio}</span>}
             </p>
             <hr />
             <h3 className="text-center text-info">Skill Set</h3>
             <div className="row">
               <div className="d-flex flex-wrap justify-content-center align-items-center">
-                {skills}
+                <div className="p-3">
+                  <i className="fa fa-check" /> HTML
+                </div>
+                <div className="p-3">
+                  <i className="fa fa-check" /> CSS
+                </div>
+                <div className="p-3">
+                  <i className="fa fa-check" /> JavaScript
+                </div>
+                <div className="p-3">
+                  <i className="fa fa-check" /> Python
+                </div>
+                <div className="p-3">
+                  <i className="fa fa-check" /> C#
+                </div>
               </div>
             </div>
           </div>
